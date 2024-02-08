@@ -550,7 +550,7 @@ window.onload = function () {
       var flag_month = 1;
       if (inpt.length > 2) {
         for (let i = 0; i < inpt_list.length; i++) {
-          if (months_list[i] == inpt_list[i]) {
+          if (months_list[i].toLocaleLowerCase() == inpt_list[i].toLocaleLowerCase()) {
             flag_month = 1;
           } else {
             flag_month = 0;
@@ -576,7 +576,7 @@ window.onload = function () {
       var flag_year = 1;
       if (inpt.length > 1) {
         for (let i = 0; i < inpt_list.length; i++) {
-          if (year_list[i] == inpt_list[i]) {
+          if (year_list[i].toLocaleLowerCase() == inpt_list[i].toLocaleLowerCase()) {
             flag_year = 1;
           } else {
             flag_year = 0;
@@ -622,7 +622,7 @@ let apply_widthname = 0;
 let apply_visible = 0;
 document.getElementById('calendar_window1').onclick = function () {
   document.getElementById('calendar_from').style = "background:#FFF;";
-  if (viewport_width >= 620) {
+  if (viewport_width >= 480) {
     if (apply_widthname == 1) {
       apply_width()
     }    
@@ -631,9 +631,9 @@ document.getElementById('calendar_window1').onclick = function () {
 
 function apply_width() {
   if(viewport_width > 820){
-    document.getElementById('calc_apply').style = "display:flex;width:725px;";
+    document.getElementById('calc_apply').style = "display:flex;width:37.7604vw;";
   }else{
-    document.getElementById('calc_apply').style = "display:flex;width:605px;";
+    document.getElementById('calc_apply').style = "display:flex;width:94.4vw;";
   }
 }
 
@@ -642,7 +642,7 @@ function open_before() {
   before_checked_old_del = `${date_checked_before_array[0]}.${date_checked_before_array[1]}.${date_checked_before_array[2]}_before`
   from_checked_old_del = `${date_checked_from_array[0]}.${date_checked_from_array[1]}.${date_checked_from_array[2]}_from`
   if (open_before_flag == 0) {
-    if (viewport_width >= 620) {
+    if (viewport_width >= 480) {
       document.getElementById('calendar_window').classList.add('calendar_window-open');
       document.getElementById('calendar_window1').classList.add('calendar_window-open');
       document.getElementById('rest_apply').classList.remove('rest_apply_active')
@@ -658,7 +658,7 @@ function open_before() {
     open_from_flag = 1
     open_from_before = 1
   } else {
-    if (viewport_width >=620) {
+    if (viewport_width >= 480) {
       document.getElementById('calendar_window').classList.remove('calendar_window-open');
       document.getElementById('calendar_window1').classList.remove('calendar_window-open');
       document.getElementById('calendar_from').style = "";
@@ -678,7 +678,7 @@ function open_from() {
   from_checked_old_del = `${date_checked_from_array[0]}.${date_checked_from_array[1]}.${date_checked_from_array[2]}_from`
   before_checked_old_del = `${date_checked_before_array[0]}.${date_checked_before_array[1]}.${date_checked_before_array[2]}_before`
   if (open_from_flag == 0) {
-    if (viewport_width >= 620) {
+    if (viewport_width >= 480) {
       document.getElementById('calendar_window').classList.add('calendar_window-open');
       document.getElementById('calendar_window1').classList.add('calendar_window-open');
       document.getElementById('rest_apply').classList.remove('rest_apply_active')
@@ -697,7 +697,7 @@ function open_from() {
     open_from_flag = 1
     open_from_before = 1
   } else {
-    if (viewport_width >= 620) {
+    if (viewport_width >= 480) {
       document.getElementById('calendar_window').classList.remove('calendar_window-open');
       document.getElementById('calendar_window1').classList.remove('calendar_window-open');
       document.getElementById('calendar_from').style = "";
@@ -730,7 +730,7 @@ year_cal_from_list.innerHTML = inner
 year_cal_list_mobile.innerHTML = inner_mobile
 var year_cal_from_list_open_flag = 0;
 function year_cal_from_list_open() {
-  if (viewport_width >= 620) {
+  if (viewport_width >= 480) {
     if (year_cal_from_list_open_flag == 0) {
       document.getElementById('year_cal-from-list').classList.add('cal-list-open');
       year_cal_from_list_open_flag = 1;
@@ -765,7 +765,7 @@ month_cal_from_list.innerHTML = inner
 month_cal_list_mobile.innerHTML = inner_mobile
 var month_cal_from_list_open_flag = 0;
 function month_cal_from_list_open() {
-  if (viewport_width >= 620) {
+  if (viewport_width >= 480) {
     if (year_from != 0) {
       if (month_cal_from_list_open_flag == 0) {
         document.getElementById('month_cal-from-list').classList.add('cal-list-open');
@@ -796,7 +796,7 @@ for (let i = year_today; i >= (year_today - 20); i--) {
 year_cal_before_list.innerHTML = inner
 var year_cal_before_list_open_flag = 0
 function year_cal_before_list_open() {
-  if (viewport_width >= 620) {
+  if (viewport_width >= 480) {
     if (year_cal_before_list_open_flag == 0) {
       document.getElementById('year_cal-before-list').classList.add('cal-list-open');
       year_cal_before_list_open_flag = 1;
@@ -823,7 +823,7 @@ for (let i = 0; i < 12; i++) {
 month_cal_before_list.innerHTML = inner
 var month_cal_before_list_open_flag = 0;
 function month_cal_before_list_open() {
-  if (viewport_width >= 620) {
+  if (viewport_width >= 480) {
       if (month_cal_before_list_open_flag == 0) {
         document.getElementById('month_cal-before-list').classList.add('cal-list-open');
         month_cal_before_list_open_flag = 1;
@@ -863,7 +863,7 @@ function apply() {
       document.getElementById('calen_clear_before').style.display = "flex";
       document.getElementById('input_before').value = ""
       document.getElementById('input_before').value = `${nameList[0]} ${Months[Number(nameList[1]) - 1]} ${nameList[2]}`
-      if (viewport_width < 400  || (viewport_width <= 820 && 620 < viewport_width)) {
+      if (viewport_width < 400  || (viewport_width <= 640 )) {
         document.getElementById('calen_open-before').style.display = 'none'
         document.getElementById('cal-inf-text_before').innerHTML = 'ДО'
       }
@@ -875,7 +875,7 @@ function apply() {
       document.getElementById('calen_clear_from').style.display = "flex";
       document.getElementById('input_from').value = ""
       document.getElementById('input_from').value = `${nameList1[0]} ${Months[Number(nameList1[1]) - 1]} ${nameList1[2]}`
-      if (viewport_width <= 400 || (viewport_width <= 820 && 620 < viewport_width)) {
+      if (viewport_width < 400  || (viewport_width <= 640  )) {
         document.getElementById('calen_open-from').style.display = 'none'
         document.getElementById('cal-inf-text_from').innerHTML = 'ОТ'
       }
